@@ -1,0 +1,54 @@
+[
+    {
+        "Id": 1,
+        "PlayerName": "Mitul",
+        "TournamentName": "Bangladesh Premier League",
+        "AwardName":"Best Defender"
+    },
+    {
+        "Id": 2,
+        "PlayerName": "Rashad",
+        "TournamentName": "Bangladesh Premier League",
+        "AwardName":"Best Defender"
+    },
+
+    {
+        "Id": 3,
+        "PlayerName": "Ibtehaz",
+        "TournamentName": "Bangladesh Premier League",
+        "AwardName":"Golden Boot"
+    },
+
+    {
+        "Id": 4,
+        "PlayerName": "Arefin",
+        "TournamentName": "365 League",
+        "AwardName":"Best CDM"
+    },
+    {
+        "Id": 5,
+        "PlayerName": "Shimu",
+        "TournamentName": "Quarantine Cup",
+        "AwardName":"Best CDM"
+    },
+    {
+        "Id": 6,
+        "PlayerName": "Azan",
+        "TournamentName": "365 Present League",
+        "AwardName":"Best Defender"
+    },
+    
+    {
+        "Id": 7,
+        "PlayerName": "Mitul",
+        "TournamentName": "365 Present League",
+        "AwardName":"Golden Ball"
+    },
+
+    {
+        "Id": 8,
+        "PlayerName": "Mitul",
+        "TournamentName": "VPG Bangladesh Pro League S1",
+        "AwardName":"Golden Ball"
+    }
+]

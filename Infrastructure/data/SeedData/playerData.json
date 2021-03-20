@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 1,
+    "Name": "Ifrat Mitul",
+    "PlayingPeriod": "2017-Present",
+    "Position":"Defense"
+  },
+  
+    {
+    "Id": 2,
+    "Name": "H.Kabir",
+    "PlayingPeriod": "2017-Present",
+    "Position":"Midfield"
+  },
+  
+    {
+    "Id": 3,
+    "Name": "Akash",
+    "PlayingPeriod": "2018-2021",
+    "Position":"ST/Wing"
+  },
+  
+    {
+    "Id": 4,
+    "Name": "Arefin",
+    "PlayingPeriod": "2018-2021",
+    "Position":"Midfield"
+  },
+  
+    {
+    "Id": 5,
+    "Name": "Shimu",
+    "PlayingPeriod": "2019-2021",
+    "Position":"CDM"
+  },
+  
+    {
+    "Id": 6,
+    "Name": "Azan",
+    "PlayingPeriod": "2017-Present",
+    "Position":"Defense"
+  },
+  
+      {
+    "Id": 7,
+    "Name": "Gazi",
+    "PlayingPeriod": "2020-2021",
+    "Position":"CB/CDM"
+  },
+  
+   {
+    "Id": 8,
+    "Name": "Rashad",
+    "PlayingPeriod": "2020-2021",
+    "Position":"Full Back"
+  }
+   
+]
