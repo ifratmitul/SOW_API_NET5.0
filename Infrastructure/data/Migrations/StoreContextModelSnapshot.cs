@@ -59,12 +59,15 @@ namespace Infrastructure.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PlayingPeriod")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Position")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

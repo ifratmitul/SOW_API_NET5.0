@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20210320090259_Initial Postgres")]
-    partial class InitialPostgres
+    [Migration("20210320211651_IntitialCreate")]
+    partial class IntitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,12 +61,15 @@ namespace Infrastructure.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PlayingPeriod")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Position")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

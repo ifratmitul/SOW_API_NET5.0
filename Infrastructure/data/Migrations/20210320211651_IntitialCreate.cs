@@ -2,7 +2,7 @@
 
 namespace Infrastructure.data.Migrations
 {
-    public partial class InitialPostgres : Migration
+    public partial class IntitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,9 +27,9 @@ namespace Infrastructure.data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    PlayingPeriod = table.Column<string>(type: "TEXT", nullable: true),
-                    Position = table.Column<string>(type: "TEXT", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    PlayingPeriod = table.Column<string>(type: "TEXT", nullable: false),
+                    Position = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -1,8 +1,8 @@
 namespace Core.Entities
 {
-    public class TournamentAward
+    public class TournamentAward : BaseEntity
     {
-        public int Id { get; set; }
+
         public string FinishedPosition { get; set; }
         public string TournamentName { get; set; }
     }

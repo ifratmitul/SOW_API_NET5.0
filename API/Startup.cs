@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Interfaces;
 using Infrastructure.data;
+using Infrastructure.data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,7 @@ namespace API
         {
 
             services.AddControllers();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddDbContext<StoreContext>(
                 x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
 

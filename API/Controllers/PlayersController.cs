@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,8 +12,10 @@ namespace API.Controllers
     public class PlayersController : BaseApiController
     {
         private readonly StoreContext _context;
-        public PlayersController(StoreContext context)
+        private readonly IPlayerRepository _playerRepo;
+        public PlayersController(StoreContext context, IPlayerRepository playerRepo)
         {
+            _playerRepo = playerRepo;
             _context = context;
         }
 
@@ -20,23 +23,17 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Player>>> GetPlayers()
         {
-            var players = await _context.Players.ToListAsync();
+            var players = await _playerRepo.GetPlayerAsync();
             return Ok(players);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(int id)
         {
-            var player = await _context.Players.FindAsync(id);
-            if (player == null)
-            {
-                return NotFound();
-            }
+            var isDeleted = await _playerRepo.DeletePlayerByIdAsync(id);
+            if (!isDeleted) return BadRequest("Couldn't Find the player in database");
 
-            _context.Players.Remove(player);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            return Ok("Deleted Successfully");
         }
 
 

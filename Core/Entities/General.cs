@@ -1,8 +1,8 @@
 namespace Core.Entities
 {
-    public class General
+    public class General : BaseEntity
     {
-        public int Id { get; set; }
+
         public string Story { get; set; }
         public string ComStory { get; set; }
     }
