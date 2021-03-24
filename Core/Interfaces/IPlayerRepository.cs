@@ -10,5 +10,6 @@ namespace Core.Interfaces
         Task<bool> DeletePlayerByIdAsync(int id);
 
 
+
     }
 }

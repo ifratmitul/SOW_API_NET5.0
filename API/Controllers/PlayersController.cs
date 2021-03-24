@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Error;
 using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.data;
@@ -12,9 +13,12 @@ namespace API.Controllers
     public class PlayersController : BaseApiController
     {
         private readonly StoreContext _context;
-        private readonly IPlayerRepository _playerRepo;
-        public PlayersController(StoreContext context, IPlayerRepository playerRepo)
+        private readonly IGenericRepository<Player> _playerRepo;
+        private readonly IPlayerRepository _separatePlayerRepo;
+
+        public PlayersController(StoreContext context, IGenericRepository<Player> playerRepo, IPlayerRepository separatePlayerRepo)
         {
+            _separatePlayerRepo = separatePlayerRepo;
             _playerRepo = playerRepo;
             _context = context;
         }
@@ -23,22 +27,23 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Player>>> GetPlayers()
         {
-            var players = await _playerRepo.GetPlayerAsync();
+            var players = await _playerRepo.GetAllAsync(); //Getting all player using Generic Repo
             return Ok(players);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(int id)
         {
-            var isDeleted = await _playerRepo.DeletePlayerByIdAsync(id);
-            if (!isDeleted) return BadRequest("Couldn't Find the player in database");
+            var isDeleted = await _separatePlayerRepo.DeletePlayerByIdAsync(id);
+            //Delete player using Specific Player Repo, might seem like over kill but will need it later for expansion
+            if (!isDeleted) return NotFound(new ApiResponse(404));
 
             return Ok("Deleted Successfully");
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<Player>> CreateTodoItem(Player playerDetails)
+        public async Task<ActionResult<Player>> CreatePlayer(Player playerDetails)
         {
             var ItemToEnter = new Player
             {
@@ -62,13 +67,13 @@ namespace API.Controllers
         {
             if (id != playerDetails.Id)
             {
-                return BadRequest();
+                return BadRequest(new ApiResponse(500));
             }
 
             var itemToEdit = await _context.Players.FindAsync(id);
             if (itemToEdit == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
 
             itemToEdit.Name = playerDetails.Name;
