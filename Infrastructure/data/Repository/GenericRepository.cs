@@ -14,11 +14,6 @@ namespace Infrastructure.data.Repository
             _context = context;
         }
 
-        // public async Task<T> DeleteByIdAsync(int id)
-        // {
-        // }
-
-
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();

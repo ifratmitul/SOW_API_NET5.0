@@ -27,7 +27,8 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Player>>> GetPlayers()
         {
-            var players = await _playerRepo.GetAllAsync(); //Getting all player using Generic Repo
+            var players = await _playerRepo.GetAllAsync();
+            //Getting all player using Generic Repo
             return Ok(players);
         }
 
