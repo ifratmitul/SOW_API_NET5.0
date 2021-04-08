@@ -16,6 +16,7 @@ namespace Infrastructure.data.Repository
 
         public async Task<IReadOnlyList<Player>> GetPlayerAsync()
         {
+
             return await _context.Players.ToListAsync();
         }
 
