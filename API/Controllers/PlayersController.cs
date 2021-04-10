@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using API.Error;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specification;
 using Infrastructure.data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,9 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Player>>> GetPlayers()
         {
+            // var spec = new PlayerWithPositionSpecification();
+            // var players = await _playerRepo.ListAsync(spec); For specification
+
             var players = await _playerRepo.GetAllAsync();
             //Getting all player using Generic Repo
             return Ok(players);
