@@ -9,6 +9,7 @@ using API.Middleware;
 using Core.Interfaces;
 using Infrastructure.data;
 using Infrastructure.data.Repository;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,7 +43,12 @@ namespace API
 
             services.AddDbContext<StoreContext>(
                 x => x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x =>
+            {
+                x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
+            });
             services.AddApplicationServices();
+            services.AddIdentityServices();
 
             services.AddSwaggerGen(c =>
             {

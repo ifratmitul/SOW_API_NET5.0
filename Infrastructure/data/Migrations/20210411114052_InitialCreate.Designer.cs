@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20210320211651_IntitialCreate")]
-    partial class IntitialCreate
+    [Migration("20210411114052_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,12 +24,18 @@ namespace Infrastructure.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("AwardName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PlayerName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TournamentName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -44,9 +50,11 @@ namespace Infrastructure.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ComStory")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Story")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -62,14 +70,17 @@ namespace Infrastructure.data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PlayingPeriod")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Position")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -84,9 +95,13 @@ namespace Infrastructure.data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FinishedPosition")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("TournamentName")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

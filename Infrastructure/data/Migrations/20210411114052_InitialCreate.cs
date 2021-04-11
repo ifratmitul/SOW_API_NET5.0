@@ -2,7 +2,7 @@
 
 namespace Infrastructure.data.Migrations
 {
-    public partial class IntitialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,9 +12,9 @@ namespace Infrastructure.data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    PlayerName = table.Column<string>(type: "TEXT", nullable: true),
-                    TournamentName = table.Column<string>(type: "TEXT", nullable: true),
-                    AwardName = table.Column<string>(type: "TEXT", nullable: true)
+                    PlayerName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    TournamentName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    AwardName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,9 +27,9 @@ namespace Infrastructure.data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    PlayingPeriod = table.Column<string>(type: "TEXT", nullable: false),
-                    Position = table.Column<string>(type: "TEXT", nullable: false)
+                    Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    PlayingPeriod = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    Position = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,8 +42,8 @@ namespace Infrastructure.data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Story = table.Column<string>(type: "TEXT", nullable: true),
-                    ComStory = table.Column<string>(type: "TEXT", nullable: true)
+                    Story = table.Column<string>(type: "TEXT", nullable: false),
+                    ComStory = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,8 +56,8 @@ namespace Infrastructure.data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FinishedPosition = table.Column<string>(type: "TEXT", nullable: true),
-                    TournamentName = table.Column<string>(type: "TEXT", nullable: true)
+                    FinishedPosition = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
+                    TournamentName = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
